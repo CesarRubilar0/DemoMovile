@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Películas</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="goToAgregar()">Agregar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-searchbar placeholder="Buscar películas" [(ngModel)]="searchTerm" (ionInput)="onSearchChange($event)"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ng-container>
+    <ion-list *ngIf="filtered.length; else sin">
+      <ion-item *ngFor="let p of filtered">
+        <ion-card style="width:100%">
+          <ion-card-header>
+            <ion-card-title>{{ p.titulo }}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content class="card-row">
+            <div class="thumb">
+              <!-- Mostrar siempre una imagen: la real si existe, si no una generada con el título dentro -->
+              <img [src]="p.imagen || getPlaceholderImage(p.titulo)" [alt]="p.titulo" />
+            </div>
+            <div class="meta">
+              <p>{{ p.descripcion }}</p>
+              <p class="stars">Puntuación:
+                <span class="star" *ngFor="let _ of stars(p.puntuacion)">★</span>
+                <span class="star empty" *ngFor="let _ of emptyStars(p.puntuacion)">☆</span>
+                <span class="score">{{ p.puntuacion }} / 5</span>
+              </p>
+              <div class="actions">
+                <ion-button size="small" (click)="goToEditar(p.id)">Editar</ion-button>
+                <ion-button size="small" color="danger" (click)="confirmarYEliminar(p.id)">Eliminar</ion-button>
+              </div>
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </ion-item>
+    </ion-list>
+
+    <ng-template #sin>
+      <p>No hay películas aún. Agrega la primera.</p>
+    </ng-template>
+  </ng-container>
+</ion-content>

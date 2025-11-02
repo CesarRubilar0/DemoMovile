@@ -1,0 +1,7 @@
+{
+  "name": "Demo-Pelis",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}

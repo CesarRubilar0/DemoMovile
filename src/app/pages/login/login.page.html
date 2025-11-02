@@ -1,0 +1,26 @@
+<ion-content class="ion-padding">
+  <div class="page-header">
+    <h2>Iniciar sesión</h2>
+  </div>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <ion-item>
+      <ion-label position="stacked">Correo</ion-label>
+      <ion-input type="email" formControlName="email" placeholder="tu@ejemplo.com"></ion-input>
+    </ion-item>
+    <div class="error" *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.invalid">
+      <small *ngIf="loginForm.get('email')?.errors?.['required']">Este campo es obligatorio</small>
+      <small *ngIf="loginForm.get('email')?.errors?.['email']">Formato de correo inválido</small>
+    </div>
+
+    <ion-item>
+      <ion-label position="stacked">Contraseña</ion-label>
+      <ion-input type="password" formControlName="password" placeholder="********"></ion-input>
+    </ion-item>
+    <div class="error" *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.invalid">
+      <small>Este campo es obligatorio</small>
+    </div>
+
+    <ion-button expand="block" type="submit" class="ion-margin-top">Entrar</ion-button>
+    <ion-button fill="clear" expand="block" routerLink="/pages/registro">Crear cuenta</ion-button>
+  </form>
+</ion-content>

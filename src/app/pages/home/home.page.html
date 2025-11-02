@@ -1,0 +1,26 @@
+<ion-content fullscreen>
+  <div class="hero">
+    <div class="hero-inner">
+      <small class="badge">Presentamos demo-pelis</small>
+      <h1>Tu Biblioteca de Películas, Reinventada</h1>
+  <p>Guarda, organiza y comparte tus películas favoritas con una comunidad de cinéfilos.
+  <strong>Descubre, conecta y disfruta del cine como nunca antes</strong></p>
+      <div class="hero-actions">
+        <ion-button color="primary" (click)="goToList()">Ver películas</ion-button>
+        <ion-button fill="outline" routerLink="/pages/agregar-pelicula">Agregar película</ion-button>
+        <ion-button fill="clear" color="medium" size="small" (click)="resetSeed()">Restablecer datos</ion-button>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-preview ion-padding">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Comienza explorando</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        Prueba agregar una película o inicia sesión para ver el flujo de usuario.
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

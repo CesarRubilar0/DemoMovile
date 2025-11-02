@@ -1,0 +1,10 @@
+ion-toolbar.navbar {
+  --background: linear-gradient(90deg, #f3e8ff 0%, #f6f0ff 100%);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+.brand { display:flex; align-items:center; gap:8px }
+.brand img { width:28px; height:28px }
+
+ion-buttons ion-button {
+  --color: rgba(0,0,0,0.7);
+}

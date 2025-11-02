@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Editar película</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="peliculaForm" (ngSubmit)="onSubmit()">
+    <ion-item>
+      <ion-label position="stacked">Título</ion-label>
+      <ion-input formControlName="titulo"></ion-input>
+    </ion-item>
+    <div class="error" *ngIf="peliculaForm.get('titulo')?.touched && peliculaForm.get('titulo')?.invalid">
+      <small>Este campo es obligatorio</small>
+    </div>
+
+    <ion-item>
+      <ion-label position="stacked">Descripción</ion-label>
+      <ion-input formControlName="descripcion"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Puntuación</ion-label>
+      <ion-input type="number" formControlName="puntuacion"></ion-input>
+    </ion-item>
+
+    <ion-button expand="block" type="submit" class="ion-margin-top">Guardar</ion-button>
+  </form>
+</ion-content>

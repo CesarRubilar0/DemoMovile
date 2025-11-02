@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Agregar película</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="peliculaForm" (ngSubmit)="onSubmit()">
+    <ion-item>
+      <ion-label position="stacked">Título *</ion-label>
+      <ion-input formControlName="titulo"></ion-input>
+    </ion-item>
+    <div class="error" *ngIf="peliculaForm.get('titulo')?.touched && peliculaForm.get('titulo')?.invalid">
+      <small>Este campo es obligatorio</small>
+    </div>
+
+    <ion-item>
+      <ion-label position="stacked">Descripción</ion-label>
+      <ion-input formControlName="descripcion"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Género</ion-label>
+      <ion-input formControlName="genero"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Año (YYYY)</ion-label>
+      <ion-input formControlName="año" type="number"></ion-input>
+    </ion-item>
+    <div class="error" *ngIf="peliculaForm.get('año')?.touched && peliculaForm.get('año')?.invalid">
+      <small>Introduce un año válido de 4 dígitos</small>
+    </div>
+
+    <!-- Campo Imagen eliminado: la imagen se genera automáticamente a partir del título -->
+
+    <ion-item>
+      <ion-label position="stacked">Puntuación (0-5) *</ion-label>
+      <ion-input type="number" formControlName="puntuacion"></ion-input>
+    </ion-item>
+    <div class="error" *ngIf="peliculaForm.get('puntuacion')?.touched && peliculaForm.get('puntuacion')?.invalid">
+      <small>Puntuación inválida (0-5)</small>
+    </div>
+
+    <ion-button expand="block" type="submit" class="ion-margin-top">Agregar</ion-button>
+  </form>
+</ion-content>
