@@ -26,13 +26,24 @@ Cómo funciona (resumen de flujo)
 4. El formulario de agregar crea nuevas películas y guarda el objeto en localStorage a través del servicio.
 
 Comandos útiles
-- Instalar dependencias (si las necesitas):
+- Versión recomendada de Node: usar la rama LTS (por ejemplo Node 20).
+  - Con nvm-windows (Windows):
+    - `nvm install 20.6.0`
+    - `nvm use 20.6.0`
+  - (Opcional) crear `.nvmrc` con: `20`
+- Instalar Ionic CLI (global, una sola vez):
+  - `npm install -g @ionic/cli`
+- Instalar dependencias del proyecto:
   - `npm install`
-- Compilar / servir en desarrollo:
-  - `npx ionic build --no-open`
-  - `npx ionic serve --no-open`
+- Levantar la app en desarrollo (ver en localhost):
+  - `ionic serve`
+  - Para evitar que abra el navegador automáticamente:
+    - `ionic serve --no-open`
+- Generar build para producción:
+  - `ionic build`
 - Ejecutar tests:
   - `npm test`
+
 
 Referencias
 - Documentación de componentes Ionic (consultada para implementar la UI):
